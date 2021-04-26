@@ -103,3 +103,13 @@ badPromise.catch(err => {
     console.log("FAILED", err);
 });
 // 8. Now bring/send your instructors actual donuts. (Just Kidding... or am I?)
+
+// AWAIT EXAMPLES
+// 1. Log all the data from the apiPromise
+async function myAsync() {
+let data = await apiPromise; // code waits for apiPromise return promise
+console.log(data);
+}
+console.log("before async function");
+myAsync();
+console.log("after async function");
