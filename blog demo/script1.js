@@ -33,5 +33,14 @@ fetch("https://grandcircusco.github.io/demo-apis/blog-posts.json")
     sectionEl.querySelector(".author").innerText = post.author;
     sectionEl.querySelector(".content").innerHTML = post.content;
 
+    // fill in date for each individual post
+    sectionEl.querySelector(".date").innerText = post.date;
+    // add tag li items to ul
+    const tags  = sectionEl.querySelector(".tags").innerText = post.tags;
+    for (let tag of tags) {
+      const liItem = document.createElement("li");
+      liItem.innerText = tag;
+      sectionEl.querySelector(".tags").appendChild(liItem);
+    }
   }
 });
