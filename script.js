@@ -60,3 +60,46 @@ console.log(planetData[1]["million-miles-from-sun"].avg);
 for (let planet of planetData) {
   console.log(planet.name + " " + planet["million-miles-from-sun"].min);
 }
+
+const apiPromise = fetch("https://grandcircusco.github.io/demo-apis/donuts.json")
+ .then(res => res.json());
+
+// 1. Log all the data from the apiPromise.
+apiPromise.then(data => {
+    console.log(data);
+});
+// 2. Log just the count from the apiPromise. (should be 8)
+apiPromise.then(data => {
+    console.log(data.count);
+});
+// 3. Create a new promise named countPromise that chains on apiPromise to return just the count.
+const countPromise = apiPromise.then(data => data.count);
+// Log the value from countPromise.
+countPromise.then(value => {
+    console.log(value);
+});
+// 4. Create a new promise named top4Promise that chains on apiPromise to return an array of the first 4 donuts. Log the value from top4Promise.
+const top4Promise = apiPromise.then(data => data.results.slice(0, 4));
+top4Promise.then(firstfour => {
+    console.log(firstfour);
+});
+// 5. Create a new promise named namesPromise that chains on apiPromise to return an array of the names of the donuts.
+const namesPromise = apiPromise.then(data => data.results.map( donut => donut.name));
+// Log the value from namesPromise.
+namesPromise.then(names => {
+    console.log(names);
+});
+// 6. Create a new promise named capNamesPromise that chains on namesPromise to return an array with the names of the donuts capitalized.
+capNamesPromise = namesPromise.then((namesArray) => namesArray.map( name => name.toUpperCase()));
+// Log the value from capNamesPromise.
+capNamesPromise.then(name => {
+    console.log(name);
+})
+// 7. Add another promise (note the "mistake" in the URL):
+ let badPromise = fetch("https://grandcircusco.github.io/demo-apis/wrong.json")
+ .then(res => res.json());
+// Catch the error from this promise and log "FAILED" plus the error message. (NOTE: You will see that the actual error is "SyntaxError: Unexpected token < in JSON…")
+badPromise.catch(err => {
+    console.log("FAILED", err);
+});
+// 8. Now bring/send your instructors actual donuts. (Just Kidding... or am I?)
