@@ -1,0 +1,52 @@
+body {
+    font-family: sans-serif;
+    padding: 0 80px;
+  }
+  
+  h1 {
+    font-style: italic;
+    font-size: 300%;
+  }
+  
+  .post {
+    margin: 0 0 30px;
+    border-bottom: 3px dotted silver;
+    padding: 0 0 5px;
+  }
+  .post:last-child {
+    border-bottom: none;
+  }
+  .post h3 {
+    margin: 0;
+  }
+  
+  .details {
+    color: gray;
+    margin: 8px 0 5px;
+    padding-left: .5em;
+  }
+  .author {
+    margin-right: 1em;
+  }
+  .author::before {
+    content: 'by '
+  }
+  
+  .content p {
+    margin: 13px 0;
+  }
+  
+  .tags {
+    list-style-type: none;
+    padding: 0;
+  }
+  .tags li {
+    display: inline-block;
+    margin-right: .3em;
+    padding-left: .3em;
+    border-left: 2px solid gray;
+  }
+  .tags li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
